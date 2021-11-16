@@ -1,0 +1,26 @@
+{
+  "name": "JTwP",
+  "version": "1.0.0",
+  "description": "Aplikacja pobierająca wszystkie jednostki terytorialne w Polsce",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "Michał Marciniak - Myras13",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "jquery": "^3.6.0",
+    "jsdom": "^18.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "nodemonConfig": {
+    "ignore": ["*.json"]
+ }
+}
