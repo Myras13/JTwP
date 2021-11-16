@@ -4,9 +4,6 @@ const { JSDOM } = require("jsdom");
 const fs = require('fs');
 const axios = require('axios');
 const app = express();
-
-app.set('view engine', 'ejs'); 
-
 const server = http.createServer(app);
 const port = 8000;
 server.listen(port);
