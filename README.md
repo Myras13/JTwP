@@ -9,7 +9,9 @@ ENG: Application downloading all territorial units in Poland using Node.js envir
 The application was written using:
 
 Node version: 14.16.0
+
 npm version: 6.14.11
+
 
 ## Installation
 
