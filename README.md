@@ -4,6 +4,15 @@ PL: Aplikacja pobierająca wszystkie jednostki terytorialne w Polsce wykorzystuj
 
 ENG: Application downloading all territorial units in Poland using Node.js environment. The data comes from https://pl.wikipedia.org/wiki/Lista_gmin_w_Polsce. Web scraping technique was used.
 
+## Node specification
+
+The application was written using:
+
+Node version: 14.16.0
+
+npm version: 6.14.11
+
+
 ## Installation
 
 You have to install the packages via npm:
@@ -23,15 +32,39 @@ npm start
 Here is an template of the script output:
 ```json
 {
-  'VoivodeshipName' : {
-    'DistrictName' : [
-      'MunicipalityName1'
-      'MunicipalityName2'
-      'MunicipalityName3'
+  "VoivodeshipName" : {
+    "DistrictName" : [
+      "MunicipalityName1"
+      "MunicipalityName2"
+      "MunicipalityName3"
       ...
     ]
     ...
   }
   ...
+}
+```
+
+Example:
+
+```json
+{
+    "Dolnośląskie": {
+        "Bolesławiecki": [
+            "Bolesławiec",
+            "Gromadka",
+            "Nowogrodziec",
+            "Osiecznica",
+            "Warta Bolesławiecka"
+        ],
+        "Dzierżoniowski": [
+            "Bielawa",
+            "Dzierżoniów",
+            "Pieszyce",
+            "Piława Górna",
+            "Łagiewniki",
+            "Niemcza"
+        ],
+     ...
 }
 ```
