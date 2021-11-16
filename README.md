@@ -32,11 +32,11 @@ npm start
 Here is an template of the script output:
 ```json
 {
-  'VoivodeshipName' : {
-    'DistrictName' : [
-      'MunicipalityName1'
-      'MunicipalityName2'
-      'MunicipalityName3'
+  "VoivodeshipName" : {
+    "DistrictName" : [
+      "MunicipalityName1"
+      "MunicipalityName2"
+      "MunicipalityName3"
       ...
     ]
     ...
@@ -64,4 +64,5 @@ Here is an template of the script output:
             "Niemcza"
         ],
      ...
+}
 ```
