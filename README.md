@@ -44,3 +44,24 @@ Here is an template of the script output:
   ...
 }
 ```
+
+```json
+{
+    "Dolnośląskie": {
+        "Bolesławiecki": [
+            "Bolesławiec",
+            "Gromadka",
+            "Nowogrodziec",
+            "Osiecznica",
+            "Warta Bolesławiecka"
+        ],
+        "Dzierżoniowski": [
+            "Bielawa",
+            "Dzierżoniów",
+            "Pieszyce",
+            "Piława Górna",
+            "Łagiewniki",
+            "Niemcza"
+        ],
+     ...
+```
