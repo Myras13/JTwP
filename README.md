@@ -1,5 +1,7 @@
 # JTwP
+
 PL: Aplikacja pobierająca wszystkie jednostki terytorialne w Polsce wykorzystując środowisko Node.js. Dane pochodzą ze strony https://pl.wikipedia.org/wiki/Lista_gmin_w_Polsce. Została wykorzystana technika Web Scraping'u.
+
 ENG: Application downloading all territorial units in Poland using Node.js environment. The data comes from https://pl.wikipedia.org/wiki/Lista_gmin_w_Polsce. Web scraping technique was used.
 
 ## Installation
