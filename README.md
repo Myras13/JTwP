@@ -45,6 +45,8 @@ Here is an template of the script output:
 }
 ```
 
+Example:
+
 ```json
 {
     "Dolnośląskie": {
