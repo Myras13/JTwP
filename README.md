@@ -34,9 +34,9 @@ Here is an template of the script output:
 {
   "VoivodeshipName" : {
     "DistrictName" : [
-      "MunicipalityName1"
-      "MunicipalityName2"
-      "MunicipalityName3"
+      "MunicipalityName1",
+      "MunicipalityName2",
+      "MunicipalityName3",
       ...
     ]
     ...
