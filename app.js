@@ -1,13 +1,8 @@
-const http = require('http');
-const express = require('express');
 const { JSDOM } = require("jsdom");
 const fs = require('fs');
 const axios = require('axios');
-const app = express();
-const server = http.createServer(app);
-const port = 8000;
-server.listen(port);
-console.debug('Server starting on port ' + port);
+
+console.debug('Start script');
 
 const startScrap = async () => {
 
@@ -20,7 +15,6 @@ const startScrap = async () => {
     const { document } = dom.window;
     const wikiTable  = document.querySelector(".mw-parser-output > table.sortable.wikitable > tbody");
     const rows = [...wikiTable.children];
-    const countItem = rows.length;
 
     rows.some((trItem, index) => {
 
@@ -38,8 +32,7 @@ const startScrap = async () => {
       voivodeship = (voivodeship.charAt(0).toUpperCase() + voivodeship.slice(1)).trim();
 
       tableAdministration.push({voivodeship:voivodeship, district:district, municipality:municipality});
-
-      console.info("Preparing data: " + (index+1) + "/" + countItem);
+      console.info("Preparing data: " + (index+1) + "/" + rows.length);
 
     });
 
@@ -68,31 +61,69 @@ async function writeFile(filename, writedata)
 
 startScrap().then(table => {
 
-  let response = {};
-  const countItem = table.length;
+  let response = {
+    voivodeships: []
+  };
 
   table.forEach((row, index) => {
 
-    voivodeship = row.voivodeship;
-    district = row.district;
-    municipality = row.municipality;
+    let idVoivodeship = -1;
+    let idDistrict = -1;
+    let idMunicipality = -1;
 
-    if(!Reflect.has(response, voivodeship))
+    response.voivodeships.some((_voivodeship, indexVoivodeship) => {
+      if(_voivodeship.Name == row.voivodeship)
+      {
+
+        idVoivodeship = indexVoivodeship;
+        _voivodeship.District.some((_district, indexDistrict) => {
+          if(_district.Name == row.district)
+          {
+
+            idDistrict = indexDistrict;
+            idMunicipality = _district.Municipalities.indexOf(row.municipality);
+            return true;
+
+          }
+        });
+
+        return true;
+
+      }
+    });
+
+    if(idVoivodeship == -1)
     {
-      response[voivodeship] = {};
+        const obj = {
+          Name: row.voivodeship,
+          District : [
+            {
+              Name: row.district,
+              Municipalities: [ row.municipality ]
+            }
+          ]
+        };
+
+        response.voivodeships.push(obj);
+        
     }
 
-    if(!Reflect.has(response[voivodeship], district))
+    else if(idDistrict == -1)
     {
-      response[voivodeship][district] = [];
+      const obj = {
+        Name: row.district,
+        Municipalities: [ row.municipality ]
+      };
+
+      response.voivodeships[idVoivodeship].District.push(obj);
     }
 
-    if(response[voivodeship][district].indexOf(municipality) === -1)
+    else if(idMunicipality == -1)
     {
-      response[voivodeship][district].push(municipality)
+      response.voivodeships[idVoivodeship].District[idDistrict]['Municipalities'].push(row.municipality);
     }
 
-    console.info("Building a json file: " + (index+1) + "/" + countItem);
+    console.info("Building a json file: " + (index+1) + "/" + table.length);
 
   });
 
