@@ -23,48 +23,44 @@ npm install
 
 All required packages will be downloaded. 
 
+## Launching the application 
+
 In order to start the application you need to run the command:
 
 ``` bash
 npm start
 ```
 
-Here is an template of the script output:
+Here is an excerpt of the script output data:
 ```json
 {
-  "VoivodeshipName" : {
-    "DistrictName" : [
-      "MunicipalityName1",
-      "MunicipalityName2",
-      "MunicipalityName3",
-      ...
+    "voivodeships": [
+        {
+            "Name": "Dolnośląskie",
+            "District": [
+                {
+                    "Name": "Bolesławiecki",
+                    "Municipalities": [
+                        "Bolesławiec",
+                        "Gromadka",
+                        "Nowogrodziec",
+                        "Osiecznica",
+                        "Warta Bolesławiecka"
+                    ]
+                },
+                {
+                    "Name": "Dzierżoniowski",
+                    "Municipalities": [
+                        "Bielawa",
+                        "Dzierżoniów",
+                        "Pieszyce",
+                        "Piława Górna",
+                        "Łagiewniki",
+                        "Niemcza"
+                    ]
+                }
+            ]
+        }
     ]
-    ...
-  }
-  ...
-}
-```
-
-Example:
-
-```json
-{
-    "Dolnośląskie": {
-        "Bolesławiecki": [
-            "Bolesławiec",
-            "Gromadka",
-            "Nowogrodziec",
-            "Osiecznica",
-            "Warta Bolesławiecka"
-        ],
-        "Dzierżoniowski": [
-            "Bielawa",
-            "Dzierżoniów",
-            "Pieszyce",
-            "Piława Górna",
-            "Łagiewniki",
-            "Niemcza"
-        ],
-     ...
 }
 ```
