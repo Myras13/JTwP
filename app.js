@@ -33,7 +33,7 @@ const startScrap = async () => {
 
       tableAdministration.push({voivodeship:voivodeship, district:district, municipality:municipality});
       console.info("Preparing data: " + (index+1) + "/" + rows.length);
-
+      
     });
 
     return tableAdministration;
@@ -62,7 +62,7 @@ async function writeFile(filename, writedata)
 startScrap().then(table => {
 
   let response = {
-    voivodeships: []
+    Voivodeships: []
   };
 
   table.forEach((row, index) => {
@@ -71,17 +71,20 @@ startScrap().then(table => {
     let idDistrict = -1;
     let idMunicipality = -1;
 
-    response.voivodeships.some((_voivodeship, indexVoivodeship) => {
+    response.Voivodeships.some((_voivodeship, indexVoivodeship) => {
       if(_voivodeship.Name == row.voivodeship)
       {
 
         idVoivodeship = indexVoivodeship;
-        _voivodeship.District.some((_district, indexDistrict) => {
+        _voivodeship.Districts.some((_district, indexDistrict) => {
           if(_district.Name == row.district)
           {
 
             idDistrict = indexDistrict;
-            idMunicipality = _district.Municipalities.indexOf(row.municipality);
+            
+            let municipalitiesName = _district.Municipalities.map((item) => item.Name);
+            idMunicipality = municipalitiesName.indexOf(row.municipality);
+            
             return true;
 
           }
@@ -96,15 +99,15 @@ startScrap().then(table => {
     {
         const obj = {
           Name: row.voivodeship,
-          District : [
+          Districts : [
             {
               Name: row.district,
-              Municipalities: [ row.municipality ]
+              Municipalities: [ { Name: row.municipality} ]
             }
           ]
         };
 
-        response.voivodeships.push(obj);
+        response.Voivodeships.push(obj);
         
     }
 
@@ -112,15 +115,15 @@ startScrap().then(table => {
     {
       const obj = {
         Name: row.district,
-        Municipalities: [ row.municipality ]
+        Municipalities: [ { Name: row.municipality} ]
       };
 
-      response.voivodeships[idVoivodeship].District.push(obj);
+      response.Voivodeships[idVoivodeship].Districts.push(obj);
     }
 
     else if(idMunicipality == -1)
     {
-      response.voivodeships[idVoivodeship].District[idDistrict]['Municipalities'].push(row.municipality);
+      response.Voivodeships[idVoivodeship].Districts[idDistrict]['Municipalities'].push({ Name: row.municipality});
     }
 
     console.info("Building a json file: " + (index+1) + "/" + table.length);
