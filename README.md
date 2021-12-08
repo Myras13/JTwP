@@ -57,31 +57,8 @@ Here is an excerpt of the script output data:
                             "Name": "Warta Bolesławiecka"
                         }
                     ]
-                },
-                {
-                    "Name": "Dzierżoniowski",
-                    "Municipalities": [
-                        {
-                            "Name": "Bielawa"
-                        },
-                        {
-                            "Name": "Dzierżoniów"
-                        },
-                        {
-                            "Name": "Pieszyce"
-                        },
-                        {
-                            "Name": "Piława Górna"
-                        },
-                        {
-                            "Name": "Łagiewniki"
-                        },
-                        {
-                            "Name": "Niemcza"
-                        }
-                    ]
                 }
-          ]
+           ]
       }
    ]
 }
