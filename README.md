@@ -34,33 +34,55 @@ npm start
 Here is an excerpt of the script output data:
 ```json
 {
-    "voivodeships": [
+    "Voivodeships": [
         {
             "Name": "Dolnośląskie",
-            "District": [
+            "Districts": [
                 {
                     "Name": "Bolesławiecki",
                     "Municipalities": [
-                        "Bolesławiec",
-                        "Gromadka",
-                        "Nowogrodziec",
-                        "Osiecznica",
-                        "Warta Bolesławiecka"
+                        {
+                            "Name": "Bolesławiec"
+                        },
+                        {
+                            "Name": "Gromadka"
+                        },
+                        {
+                            "Name": "Nowogrodziec"
+                        },
+                        {
+                            "Name": "Osiecznica"
+                        },
+                        {
+                            "Name": "Warta Bolesławiecka"
+                        }
                     ]
                 },
                 {
                     "Name": "Dzierżoniowski",
                     "Municipalities": [
-                        "Bielawa",
-                        "Dzierżoniów",
-                        "Pieszyce",
-                        "Piława Górna",
-                        "Łagiewniki",
-                        "Niemcza"
+                        {
+                            "Name": "Bielawa"
+                        },
+                        {
+                            "Name": "Dzierżoniów"
+                        },
+                        {
+                            "Name": "Pieszyce"
+                        },
+                        {
+                            "Name": "Piława Górna"
+                        },
+                        {
+                            "Name": "Łagiewniki"
+                        },
+                        {
+                            "Name": "Niemcza"
+                        }
                     ]
                 }
-            ]
-        }
-    ]
+          ]
+      }
+   ]
 }
 ```
